@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
+import logo from '../../public/logo (3).jpg';
 
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext);
@@ -39,7 +40,14 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost text-3xl hover:text-rose-500">Food Kingdom</Link>
+                    <div className='flex items-center'>
+                        <div>
+                            <img className='w-16 h-16 rounded-xl' src={logo} alt="" />
+                        </div>
+                        <div>
+                            <Link to='/' className="btn btn-ghost text-3xl hover:text-rose-500">Food Kingdom</Link>
+                        </div>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
