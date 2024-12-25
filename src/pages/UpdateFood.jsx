@@ -1,12 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../providers/AuthProvider';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
 import foodBackground from '../assets/sandwich.png';
-import { AuthContext } from "../providers/AuthProvider";
-import axios from "axios";
-import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
-const AddFood = () => {
+import Swal from 'sweetalert2';
+
+const UpdateFood = () => {
+    const { id } = useParams();
     const { user } = useContext(AuthContext);
-    const navigate = useNavigate()
+    const [food, setFood] = useState({});
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        fetchFoodData();
+    }, [id]);
+
+    const fetchFoodData = async () => {
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/food/${id}`);
+        setFood(data);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,21 +44,21 @@ const AddFood = () => {
             },
             foodOrigin,
             description,
-            purchaseCount:0
+            purchaseCount: food?.purchaseCount
         };
 
         try {
-            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/add-food`, foodData);
+            const { data } = await axios.put(`${import.meta.env.VITE_API_URL}/update-food`, foodData);
             form.reset();
             console.log(data);
             if (data.insertedId) {
                 Swal.fire({
-                    title: "Food added successfully!!!",
+                    title: "Food updated successfully!!!",
                     icon: "success",
                     draggable: true
                 });
             }
-            navigate('/my-foods')
+            navigate('/my-foods');
         } catch (error) {
             console.log(error.message);
             Swal.fire({
@@ -70,7 +82,7 @@ const AddFood = () => {
                 }}
             >
                 <h2 className="text-2xl md:text-5xl text-black font-bold text-center  mb-6">
-                    Add a New Food Item
+                    Update a New Food Item
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Food Name */}
@@ -81,6 +93,7 @@ const AddFood = () => {
                         <input
                             type="text"
                             name="foodName"
+                            defaultValue={food?.foodName}
                             placeholder="Enter the food name"
                             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                             required
@@ -95,6 +108,7 @@ const AddFood = () => {
                         <input
                             type="url"
                             name="foodImage"
+                            defaultValue={food?.foodImage}
                             placeholder="Enter the image URL"
                             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                             required
@@ -102,12 +116,13 @@ const AddFood = () => {
                     </div>
 
                     {/* Food Category */}
-                    <div>
+                    {food?.foodCategory && (<div>
                         <label className="block text-lg font-medium text-gray-700">
                             Food Category
                         </label>
                         <select
                             name="foodCategory"
+                            defaultValue={food?.foodCategory}
                             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                             required
                         >
@@ -117,7 +132,7 @@ const AddFood = () => {
                             <option value="Dessert">Dessert</option>
                             <option value="Beverage">Beverage</option>
                         </select>
-                    </div>
+                    </div>)}
 
                     {/* Quantity */}
                     <div>
@@ -127,6 +142,7 @@ const AddFood = () => {
                         <input
                             type="number"
                             name="quantity"
+                            defaultValue={food?.quantity}
                             placeholder="Enter the quantity"
                             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                             required
@@ -141,6 +157,7 @@ const AddFood = () => {
                         <input
                             type="number"
                             name="price"
+                            defaultValue={food?.price}
                             placeholder="Enter the price"
                             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                             required
@@ -155,6 +172,7 @@ const AddFood = () => {
                         <input
                             type="text"
                             name="foodOrigin"
+                            defaultValue={food?.foodOrigin}
                             placeholder="Enter the country of origin"
                             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                             required
@@ -168,6 +186,7 @@ const AddFood = () => {
                         </label>
                         <textarea
                             name="description"
+                            defaultValue={food?.description}
                             placeholder="Enter a short description of the food item (ingredients, making procedure, etc.)"
                             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                             rows="4"
@@ -210,7 +229,7 @@ const AddFood = () => {
                             type="submit"
                             className="px-6 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-transform duration-300"
                         >
-                            Add Item
+                            Update
                         </button>
                     </div>
                 </form>
@@ -219,4 +238,4 @@ const AddFood = () => {
     );
 };
 
-export default AddFood;
+export default UpdateFood;

@@ -26,6 +26,7 @@ const MyFoods = () => {
                 icon: "success",
                 draggable: true
             });
+            console.log(data);
             fetchAllFoods();
         } catch (error) {
             console.log(error.message);
@@ -73,7 +74,9 @@ const MyFoods = () => {
                                             ${food.price}
                                         </td>
                                         <td className='border'>
-                                            <p className='py-1 mx-5 text-sm text-red-600 bg-red-100 rounded-full'>{food.foodCategory}</p>
+                                            <p className={`py-1 mx-5 text-sm ${food.foodCategory === 'Starter' && 'text-red-600 bg-red-100 rounded-full'} ${food.foodCategory === 'Main Course' && 'text-teal-600 bg-teal-100 rounded-full'}
+                                            ${food.foodCategory === 'Dessert' && 'text-violet-600 bg-violet-100 rounded-full'}
+                                            ${food.foodCategory === 'Beverage' && 'text-yellow-600 bg-yellow-100 rounded-full'}`}>{food.foodCategory}</p>
                                         </td>
                                         <td className='border py-3'>
                                             <div className='flex gap-3 items-center justify-center'>
