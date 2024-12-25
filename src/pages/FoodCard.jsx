@@ -9,7 +9,8 @@ const FoodCard = ({ food }) => {
         quantity,
         price,
         foodOrigin,
-        description
+        description,
+        _id
     } = food || {};
 
     return (
@@ -32,12 +33,12 @@ const FoodCard = ({ food }) => {
                         </p>
                     </div>
                     <div className="flex justify-between items-center mt-4">
-                        <Link to="/food/1">
+                        <Link to={`/food/${_id}`}>
                             <button className="bg-green-400 text-gray-900 px-4 py-2 rounded-md hover:bg-green-500 transition-colors duration-300">
                                 Details
                             </button>
                         </Link>
-                        <Link to="/purchase/1">
+                        <Link to={`/purchase/1`}>
                             <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300">
                                 Purchase
                             </button>
