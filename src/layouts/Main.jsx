@@ -6,14 +6,13 @@ import { Outlet } from 'react-router-dom';
 const Main = () => {
 
     return (
-        <div className='mx-10'>
-            {/* Navbar */}
-            <Navbar />
-            {/* Outlet */}
-            <div className='min-h-[calc(100vh-306px)]'>
+        <div className=''>
+            <div className=''>
+                <Navbar />
+            </div>
+            <div className=''>
                 <Outlet />
             </div>
-            {/* Footer */}
             <Footer />
         </div>
     );

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
@@ -14,6 +15,28 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const registerUser = { name, email, password, photoURL };
         console.log(registerUser);
+
+        if (!/[A-Z]/.test(password)) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Invalid Password',
+                text: 'Password must contain at least one lowercase letter.',
+            });
+        }
+        if (!/[a-z]/.test(password)) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Invalid Password',
+                text: 'Password must contain at least one lowercase letter.',
+            });
+        }
+        if (password.length < 6) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Invalid Password',
+                text: 'Password must be at least 6 characters long.',
+            });
+        }
 
         createUser(email, password)
             .then(res => {

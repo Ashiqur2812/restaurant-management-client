@@ -4,6 +4,9 @@ import Home from "../pages/Home";
 import Login from "../pages/Authentication/Login";
 import Register from "../pages/Authentication/Register";
 import NotFound from "../shared/NotFound";
+import AddFood from "../pages/AddFood";
+import AllFoods from "../pages/AllFoods";
+import PrivateRoute from "../private/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -13,6 +16,14 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home></Home>
+            },
+            {
+                path: '/add-food',
+                element: <PrivateRoute><AddFood></AddFood></PrivateRoute>
+            },
+            {
+                path: '/all-foods',
+                element: <AllFoods></AllFoods>
             },
             {
                 path: '/login',

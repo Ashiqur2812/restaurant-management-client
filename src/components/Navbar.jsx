@@ -10,14 +10,14 @@ const Navbar = () => {
         <li><NavLink to='/'> Home </NavLink></li>
         <li><NavLink to='/all-foods'> All Foods </NavLink></li>
         <li><NavLink to='/gallery'> Gallery </NavLink></li>
-        <li><NavLink to='/my-foods-page'> My foods Page </NavLink></li>
-        <li><NavLink to='/add-food-page'> Add Food Page </NavLink></li>
+        <li><NavLink to='/my-foods'> My foods </NavLink></li>
+        <li><NavLink to='/add-food'> Add Food </NavLink></li>
         <li><NavLink to='/my-orders'> My Orders </NavLink></li>
     </>;
 
     return (
-        <div>
-            <div className="navbar bg-base-100">
+        <div className='mb-20 '>
+            <div className="navbar fixed w-full top-0 z-50 backdrop-blur-xl px-6">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
