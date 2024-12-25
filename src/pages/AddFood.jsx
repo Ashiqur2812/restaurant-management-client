@@ -41,7 +41,7 @@ const AddFood = () => {
             console.log(data);
             if (data.insertedId) {
                 Swal.fire({
-                    title: "Data added successfully!!!",
+                    title: "Food added successfully!!!",
                     icon: "success",
                     draggable: true
                 });

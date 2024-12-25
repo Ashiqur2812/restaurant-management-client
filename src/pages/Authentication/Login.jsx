@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const { signInUser, googleAuth } = useContext(AuthContext);
@@ -15,6 +16,11 @@ const Login = () => {
         signInUser(email, password)
             .then(res => {
                 console.log(res.user);
+                Swal.fire({
+                    title: "Login successful!!!",
+                    icon: "success",
+                    draggable: true
+                });
             })
             .catch(error => {
                 console.log('ERROR', error.message);

@@ -7,6 +7,7 @@ import NotFound from "../shared/NotFound";
 import AddFood from "../pages/AddFood";
 import AllFoods from "../pages/AllFoods";
 import PrivateRoute from "../private/PrivateRoute";
+import MyFoods from "../pages/MyFoods";
 
 const router = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
             {
                 path: '/all-foods',
                 element: <AllFoods></AllFoods>
+            },
+            {
+                path: '/my-foods',
+                element: <PrivateRoute><MyFoods></MyFoods></PrivateRoute>
             },
             {
                 path: '/login',
