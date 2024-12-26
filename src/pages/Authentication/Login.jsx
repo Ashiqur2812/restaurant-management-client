@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const Login = () => {
     const { signInUser, googleAuth } = useContext(AuthContext);
+    const location = useLocation();
+    const from = location?.state || '/';
+    const navigate = useNavigate();
 
     const handleLogin = e => {
         e.preventDefault();
@@ -13,6 +17,7 @@ const Login = () => {
         const password = form.password.value;
         const loginUser = { email, password };
         console.log(loginUser);
+
         signInUser(email, password)
             .then(res => {
                 console.log(res.user);
@@ -23,8 +28,38 @@ const Login = () => {
                 });
             })
             .catch(error => {
-                console.log('ERROR', error.message);
+                Swal.fire({
+                    icon: "error",
+                    title: "Something went wrong!!!",
+                    draggable: true
+                });
             });
+    };
+
+    const handleGoogleSignIn = async () => {
+        try {
+            const result = await googleAuth();
+
+            // generate token
+
+            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`, {
+                email: result?.user?.email
+            });
+            console.log(data);
+
+            Swal.fire({
+                title: "Food purchase successful!!!",
+                icon: "success",
+                draggable: true
+            });
+            navigate(from, { replace: true });
+        } catch (err) {
+            Swal.fire({
+                icon: "error",
+                title: "Something went wrong!!!",
+                draggable: true
+            });
+        }
     };
 
 
@@ -66,7 +101,7 @@ const Login = () => {
                         </div>
                     </form>
                     <div className="divider my-6">OR</div>
-                    <button onClick={googleAuth}
+                    <button onClick={handleGoogleSignIn}
                         class="bg-[linear-gradient(#e9e9e9,#e9e9e9_50%,#fff)] group w-50 h-16 inline-flex transition-all duration-300 overflow-visible p-1 w-full rounded-full group"
                     >
                         <div

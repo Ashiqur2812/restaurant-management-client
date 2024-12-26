@@ -13,7 +13,7 @@ const AllFoods = () => {
             setFoods(data);
         };
         fetchAllFoods();
-    }, [filter]);
+    }, [filter,search]);
 
     const handleReset = () => {
         setFilter('');

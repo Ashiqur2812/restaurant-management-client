@@ -55,7 +55,7 @@ const AddFood = () => {
                 draggable: true
             });
         }
-        console.table({ foodData });
+        // console.table({ foodData });
     };
 
     return (

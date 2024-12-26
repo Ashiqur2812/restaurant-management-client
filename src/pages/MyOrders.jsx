@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
-import 'animate.css'; 
+import 'animate.css';
 import OrderTable from '../components/OrderTable';
 import { AuthContext } from '../providers/AuthProvider';
 
@@ -14,7 +14,7 @@ const MyOrders = () => {
     }, [user]);
 
     const fetchAllFoods = async () => {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/my-orders/${user?.email}`);
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/my-orders/${user?.email}`, { withCredentials: true });
         setOrder(data);
     };
 
@@ -59,9 +59,9 @@ const MyOrders = () => {
                             </tr>
                         </thead>
                         <tbody>
-                           {
-                            order.map(order=><OrderTable key={order._id} order={order} handleDelete={handleDelete}/>)
-                           }
+                            {
+                                order.map(order => <OrderTable key={order._id} order={order} handleDelete={handleDelete} />)
+                            }
                         </tbody>
                     </table>
                 </div>
