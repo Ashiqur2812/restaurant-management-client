@@ -10,13 +10,14 @@ const FoodCard = ({ food }) => {
         price,
         foodOrigin,
         description,
-        _id
+        _id,
+        purchaseCount
     } = food || {};
 
     return (
         <div className="flex justify-center items-center p-4">
             <div className="w-full max-w-sm bg-gradient-to-r from-green-400 to-blue-500 rounded-xl transition-all duration-300 hover:shadow-lg ">
-                <div className="bg-gray-900 rounded-xl p-4 h-[28rem] transition-transform duration-200 hover:scale-95 overflow-hidden">
+                <div className="bg-gray-900 rounded-xl p-4 h-[29rem] transition-transform duration-200 hover:scale-95 overflow-hidden">
                     <img
                         src={foodImage}
                         alt={foodName}
@@ -28,6 +29,7 @@ const FoodCard = ({ food }) => {
                         <p className="text-sm text-gray-400">Origin: {foodOrigin}</p>
                         <p className="text-sm text-gray-400">Quantity: {quantity}</p>
                         <p className="text-sm text-gray-400">Price: ${price}</p>
+                        <p className="text-sm text-gray-400">Total Purchase: {purchaseCount}</p>
                         <p className="text-sm text-gray-300 mt-2">
                             {description.substring(0, 70)}...
                         </p>
@@ -38,7 +40,7 @@ const FoodCard = ({ food }) => {
                                 Details
                             </button>
                         </Link>
-                        <Link to={`/purchase/1`}>
+                        <Link to={`/purchase/${_id}`}>
                             <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300">
                                 Purchase
                             </button>

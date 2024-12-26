@@ -19,7 +19,7 @@ const FoodDetails = () => {
         setFood(data);
     };
 
-    const { foodName, foodImage, foodCategory, quantity, price, foodOrigin, description, purchaseCount } = food || {};
+    const { foodName, foodImage, foodCategory, quantity, price, foodOrigin, description, purchaseCount, _id, buyer } = food || {};
 
     const handleNavigate = () => {
         return navigate(-1);
