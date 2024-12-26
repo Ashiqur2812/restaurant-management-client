@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../providers/AuthProvider';
 import 'animate.css'; // Import Animate.css for animations
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const MyFoods = () => {
+    const axiosSecure = useAxiosSecure()
     const { user } = useContext(AuthContext);
     const [foods, setFoods] = useState([]);
 
@@ -14,7 +16,7 @@ const MyFoods = () => {
     }, [user]);
 
     const fetchAllFoods = async () => {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/foods/${user?.email}`, { withCredentials: true });
+        const { data } = await axiosSecure.get(`/foods/${user?.email}`, { withCredentials: true });
         setFoods(data);
     };
 

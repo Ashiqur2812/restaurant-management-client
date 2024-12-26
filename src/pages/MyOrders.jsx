@@ -1,11 +1,12 @@
-import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import 'animate.css';
 import OrderTable from '../components/OrderTable';
 import { AuthContext } from '../providers/AuthProvider';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const MyOrders = () => {
+    const axiosSecure = useAxiosSecure();
     const { user } = useContext(AuthContext);
     const [order, setOrder] = useState([]);
 
@@ -14,13 +15,13 @@ const MyOrders = () => {
     }, [user]);
 
     const fetchAllFoods = async () => {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/my-orders/${user?.email}`, { withCredentials: true });
+        const { data } = await axiosSecure.get(`/my-orders/${user?.email}`, { withCredentials: true });
         setOrder(data);
     };
 
     const handleDelete = async (id) => {
         try {
-            const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/food/${id}`);
+            const { data } = await axiosSecure.delete(`/food/${id}`);
             Swal.fire({
                 title: "Food deleted successfully!!!",
                 icon: "success",

@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import foodBackground from '../assets/sandwich.png';
 import { AuthContext } from "../providers/AuthProvider";
-import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 const AddFood = () => {
+    const axiosSecure = useAxiosSecure()
     const { user } = useContext(AuthContext);
     const navigate = useNavigate()
 
@@ -36,7 +37,7 @@ const AddFood = () => {
         };
 
         try {
-            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/add-food`, foodData);
+            const { data } = await axiosSecure.post(`/add-food`, foodData, { withCredentials: true });
             form.reset();
             console.log(data);
             if (data.insertedId) {

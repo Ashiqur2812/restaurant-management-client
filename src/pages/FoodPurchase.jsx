@@ -4,10 +4,11 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { AuthContext } from '../providers/AuthProvider';
 import foodBackground from '../assets/banners.png'; // Add a food-themed background image
-import axios from 'axios';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const FoodPurchase = () => {
+    const axiosSecure = useAxiosSecure();
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const { id } = useParams();
@@ -43,9 +44,9 @@ const FoodPurchase = () => {
 
         try {
             // 1. make a post request
-            const { data } = await axios.post(
-                `${import.meta.env.VITE_API_URL}/purchase-food`,
-                purchaseData);
+            const { data } = await axiosSecure.post(
+                `/purchase-food`,
+                purchaseData, { withCredentials: true });
             form.reset();
             if (data.insertedId) {
                 Swal.fire({
@@ -149,7 +150,7 @@ const FoodPurchase = () => {
                     </div>
 
                     {/* Submit Button */}
-                    <button 
+                    <button
                         className="text-xl w-32 h-12 rounded bg-emerald-500 text-white relative overflow-hidden group z-10 hover:text-white duration-1000"
                     >
                         <span
