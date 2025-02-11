@@ -16,7 +16,7 @@ const FoodCard = ({ food }) => {
 
     return (
         <div className="flex justify-center items-center p-4">
-            <div className="w-full max-w-sm bg-gradient-to-r from-green-400 to-blue-500 rounded-xl transition-all duration-300 hover:shadow-lg ">
+            <div className="w-full max-w-sm bg-gradient-to-r from-emerald-400 to-sky-500 rounded-xl transition-all duration-500 ease-in-out hover:shadow-lg">
                 <div className="bg-gray-900 rounded-xl p-4 h-[29rem] transition-transform duration-200 hover:scale-95 overflow-hidden">
                     <img
                         src={foodImage}
@@ -36,12 +36,12 @@ const FoodCard = ({ food }) => {
                     </div>
                     <div className="flex justify-between items-center mt-4">
                         <Link to={`/food/${_id}`}>
-                            <button className="bg-green-400 text-gray-900 px-4 py-2 rounded-md hover:bg-green-500 transition-colors duration-300">
+                            <button className="bg-emerald-400 text-gray-900 px-4 py-2 rounded-md hover:bg-emerald-500 transition-colors duration-300">
                                 Details
                             </button>
                         </Link>
                         <Link to={`/purchase/${_id}`}>
-                            <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300">
+                            <button className="bg-sky-500 text-white px-4 py-2 rounded-md hover:bg-sky-600 transition-colors duration-300">
                                 Purchase
                             </button>
                         </Link>

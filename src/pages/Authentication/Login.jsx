@@ -16,11 +16,11 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         const loginUser = { email, password };
-        console.log(loginUser);
+        // console.log(loginUser);
 
         signInUser(email, password)
             .then(res => {
-                console.log(res.user);
+                // console.log(res.user);
                 Swal.fire({
                     title: "Login successful!!!",
                     icon: "success",
@@ -45,7 +45,7 @@ const Login = () => {
             const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`, {
                 email: result?.user?.email
             });
-            console.log(data);
+            // console.log(data);
 
             Swal.fire({
                 title: "Food purchase successful!!!",

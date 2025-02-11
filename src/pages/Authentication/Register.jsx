@@ -14,13 +14,13 @@ const Register = () => {
         const password = form.password.value;
         const photoURL = form.photoURL.value;
         const registerUser = { name, email, password, photoURL };
-        console.log(registerUser);
+        // console.log(registerUser);
 
         if (!/[A-Z]/.test(password)) {
             return Swal.fire({
                 icon: 'error',
                 title: 'Invalid Password',
-                text: 'Password must contain at least one lowercase letter.',
+                text: 'Password must contain at least one uppercase letter.',
             });
         }
         if (!/[a-z]/.test(password)) {
@@ -40,7 +40,7 @@ const Register = () => {
 
         createUser(email, password)
             .then(res => {
-                console.log(res.user);
+                // console.log(res.user);
                 Swal.fire({
                     title: "Sign up successful!!!",
                     icon: "success",
@@ -48,7 +48,7 @@ const Register = () => {
                 });
             })
             .catch(error => {
-                console.log('ERROR', error.message);
+                // console.log('ERROR', error.message);
             });
     };
 

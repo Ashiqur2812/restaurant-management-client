@@ -4,6 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+
 const AddFood = () => {
     const axiosSecure = useAxiosSecure()
     const { user } = useContext(AuthContext);
@@ -39,7 +40,7 @@ const AddFood = () => {
         try {
             const { data } = await axiosSecure.post(`/add-food`, foodData, { withCredentials: true });
             form.reset();
-            console.log(data);
+            // console.log(data);
             if (data.insertedId) {
                 Swal.fire({
                     title: "Food added successfully!!!",
@@ -49,7 +50,7 @@ const AddFood = () => {
             }
             navigate('/my-foods')
         } catch (error) {
-            console.log(error.message);
+            // console.log(error.message);
             Swal.fire({
                 icon: "error",
                 title: "Something went wrong!",
@@ -97,7 +98,7 @@ const AddFood = () => {
                             type="url"
                             name="foodImage"
                             placeholder="Enter the image URL"
-                            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-500"
                             required
                         />
                     </div>
@@ -109,7 +110,7 @@ const AddFood = () => {
                         </label>
                         <select
                             name="foodCategory"
-                            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-500"
                             required
                         >
                             <option value="">Select a category</option>
@@ -129,7 +130,7 @@ const AddFood = () => {
                             type="number"
                             name="quantity"
                             placeholder="Enter the quantity"
-                            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-500"
                             required
                         />
                     </div>
@@ -143,7 +144,7 @@ const AddFood = () => {
                             type="number"
                             name="price"
                             placeholder="Enter the price"
-                            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-500"
                             required
                         />
                     </div>
@@ -157,7 +158,7 @@ const AddFood = () => {
                             type="text"
                             name="foodOrigin"
                             placeholder="Enter the country of origin"
-                            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-500"
                             required
                         />
                     </div>
@@ -170,7 +171,7 @@ const AddFood = () => {
                         <textarea
                             name="description"
                             placeholder="Enter a short description of the food item (ingredients, making procedure, etc.)"
-                            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sky-500"
                             rows="4"
                             required
                         ></textarea>
@@ -209,7 +210,7 @@ const AddFood = () => {
                     <div className="text-center">
                         <button
                             type="submit"
-                            className="px-6 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-transform duration-300"
+                            className="px-6 py-3 bg-gradient-to-r from-green-400 to-sky-500 text-white font-bold rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-transform duration-300"
                         >
                             Add Item
                         </button>

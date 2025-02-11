@@ -2,6 +2,7 @@ import React from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { Link } from 'react-router-dom';
 import animate from '../assets/Animation - 1733668801995.json';
+
 const NotFound = () => {
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-gray-100">

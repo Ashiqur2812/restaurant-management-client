@@ -28,10 +28,10 @@ const MyFoods = () => {
                 icon: "success",
                 draggable: true
             });
-            console.log(data);
+            // console.log(data);
             fetchAllFoods();
         } catch (error) {
-            console.log(error.message);
+            // console.log(error.message);
             Swal.fire({
                 icon: "error",
                 title: "Something went wrong!",

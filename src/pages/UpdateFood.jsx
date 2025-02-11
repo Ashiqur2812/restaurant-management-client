@@ -50,7 +50,7 @@ const UpdateFood = () => {
         try {
             const { data } = await axios.put(`${import.meta.env.VITE_API_URL}/update-food/${id}`, foodData);
             form.reset();
-            console.log(data);
+            // console.log(data);
             if (data.modifiedCount > 0) {
                 Swal.fire({
                     title: "Food updated successfully!!!",
@@ -60,7 +60,7 @@ const UpdateFood = () => {
             }
             navigate('/my-foods');
         } catch (error) {
-            console.log(error.message);
+            // console.log(error.message);
             Swal.fire({
                 icon: "error",
                 title: "Something went wrong!",

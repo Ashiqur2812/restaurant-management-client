@@ -6,13 +6,9 @@ import { Outlet } from 'react-router-dom';
 const Main = () => {
 
     return (
-        <div className=''>
-            <div className=''>
-                <Navbar />
-            </div>
-            <div className=''>
-                <Outlet />
-            </div>
+        <div>
+            <Navbar />
+            <Outlet />
             <Footer />
         </div>
     );

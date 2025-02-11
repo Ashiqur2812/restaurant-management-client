@@ -22,8 +22,8 @@ const AllFoods = () => {
 
     return (
         <>
-            <div className=''>
-                <h1 className="text-4xl text-center font-bold mt-5">All Foods </h1>
+            <div>
+                <h1 className="text-4xl text-center font-bold mt-40">All Foods </h1>
                 <div className='flex flex-col md:flex-row justify-center items-center gap-5 mt-8'>
                     <div>
                         <select
@@ -41,7 +41,7 @@ const AllFoods = () => {
                         </select>
                     </div>
 
-                    <div className='flex p-1 overflow-hidden border rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300'>
+                    <div className='flex p-1 overflow-hidden border rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-sky-400 focus-within:ring-sky-300'>
                         <input
                             className='px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent'
                             type='text'
@@ -61,7 +61,7 @@ const AllFoods = () => {
                     </button>
                 </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-12 my-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-20 px-12 my-12">
                 {
                     foods.map(food => <FoodCard key={food._id} food={food}></FoodCard>)
                 }

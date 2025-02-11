@@ -13,6 +13,7 @@ const FoodPurchase = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const [startDate, setStartDate] = useState(new Date());
+    
     const handlePurchase = async (e) => {
         e.preventDefault();
         const form = e.target;
@@ -20,7 +21,7 @@ const FoodPurchase = () => {
         const price = form.price.value;
         const quantity = form.quantity.value;
         const foodId = id;
-        console.log(foodId);
+        // console.log(foodId);
 
         if (quantity === 0) {
             return Swal.fire({
@@ -55,10 +56,10 @@ const FoodPurchase = () => {
                     draggable: true
                 });
             }
-            console.log(data);
+            // console.log(data);
             navigate('/my-orders');
         } catch (err) {
-            console.log(err.message);
+            // console.log(err.message);
             Swal.fire({
                 icon: "error",
                 title: "You have already purchased!!!",
@@ -77,11 +78,11 @@ const FoodPurchase = () => {
             }}
         >
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+            <div className="absolute inset-0 bg-black/30 bg-opacity-60"></div>
 
             {/* Blurred Card */}
             <div className="relative z-10 backdrop-blur-sm bg-white bg-opacity-30 rounded-lg shadow-2xl max-w-lg w-full p-8 sm:p-12 animate-fade-in">
-                <h1 className="text-3xl font-bold text-gray-100 mb-6 text-center">
+                <h1 className="text-4xl font-bold text-gray-100 mb-6 text-center">
                     Purchase Food
                 </h1>
                 <form onSubmit={handlePurchase} className="space-y-6 ">

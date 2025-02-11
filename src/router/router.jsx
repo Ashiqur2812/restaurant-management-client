@@ -13,61 +13,66 @@ import FoodDetails from "../pages/FoodDetails";
 import Gallery from "../pages/Gallery";
 import FoodPurchase from "../pages/FoodPurchase";
 import MyOrders from "../pages/MyOrders";
+import Loader from "../shared/Loader";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Main></Main>,
+        element: <Main />,
         children: [
             {
                 index: true,
-                element: <Home></Home>
+                element: <Home />
             },
             {
                 path: '/add-food',
-                element: <PrivateRoute><AddFood></AddFood></PrivateRoute>
+                element: <PrivateRoute><AddFood /></PrivateRoute>
             },
             {
                 path: '/all-foods',
-                element: <AllFoods></AllFoods>
+                element: <AllFoods />
             },
             {
                 path: '/my-foods',
-                element: <PrivateRoute><MyFoods></MyFoods></PrivateRoute>
+                element: <PrivateRoute><MyFoods /></PrivateRoute>
             },
             {
                 path: '/update/:id',
-                element: <PrivateRoute><UpdateFood></UpdateFood></PrivateRoute>
+                element: <PrivateRoute><UpdateFood /></PrivateRoute>
             },
             {
                 path: '/food/:id',
-                element: <FoodDetails></FoodDetails>
+                element: <FoodDetails />
             },
             {
                 path: '/gallery',
-                element: <Gallery></Gallery>
+                element: <Gallery />
             },
             {
                 path: '/purchase/:id',
-                element: <PrivateRoute><FoodPurchase></FoodPurchase></PrivateRoute>
+                element: <PrivateRoute><FoodPurchase /></PrivateRoute>
             },
             {
                 path: '/my-orders',
-                element: <PrivateRoute><MyOrders></MyOrders></PrivateRoute>
+                element: <PrivateRoute><MyOrders /></PrivateRoute>
             },
             {
                 path: '/login',
-                element: <Login></Login>
+                element: <Login />
             },
             {
                 path: '/register',
-                element: <Register></Register>
+                element: <Register />
             },
         ]
     },
     {
         path: '*',
-        element: <NotFound></NotFound>
+        element: <Loader />
+    },
+    {
+        path: '*',
+        element: <NotFound />
     }
 ]);
 

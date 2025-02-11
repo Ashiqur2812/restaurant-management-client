@@ -16,8 +16,8 @@ const Navbar = () => {
     </>;
 
     return (
-        <div className='mb-20 '>
-            <div className="navbar fixed w-full top-0 z-50 backdrop-blur-xl px-6">
+        <div className='mb-36 md:mb-24'>
+            <div className="navbar fixed w-full top-0 z-10 backdrop-blur-lg px-8 py-8 md:py-5">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -36,7 +36,7 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow font-medium">
                             {links}
                         </ul>
                     </div>
@@ -50,7 +50,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal px-1 font-medium">
                         {links}
                     </ul>
                 </div>
@@ -148,7 +148,7 @@ const Navbar = () => {
                     }
                 </div>
                 {isMenuOpen && (
-                    <div className="lg:hidden flex flex-col items-center space-y-4 py-4">
+                    <div className="lg:hidden flex flex-col items-center space-y-4 py-4 font-medium">
                         {links}
                     </div>
                 )}

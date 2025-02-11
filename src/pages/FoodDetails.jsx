@@ -1,12 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { AuthContext } from '../providers/AuthProvider';
 import axios from 'axios';
 import image from '../assets/banner.jpg';
 
 const FoodDetails = () => {
     const { id } = useParams();
-    const { user } = useContext(AuthContext);
     const [food, setFood] = useState({});
     const navigate = useNavigate();
 
@@ -19,7 +17,7 @@ const FoodDetails = () => {
         setFood(data);
     };
 
-    const { foodName, foodImage, foodCategory, quantity, price, foodOrigin, description, purchaseCount, _id, buyer } = food || {};
+    const { foodName, foodImage, foodCategory, quantity, price, foodOrigin, description, purchaseCount } = food || {};
 
     const handleNavigate = () => {
         return navigate(-1);
@@ -27,21 +25,21 @@ const FoodDetails = () => {
 
     return (
         <div
-            className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
+            className="relative min-h-[42rem] flex items-center justify-center bg-cover bg-center object-cover"
             style={{
                 backgroundImage: `url(${image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
         >
-            <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+            <div className="absolute inset-0 bg-black/30 bg-opacity-60"></div>
             <div className="relative z-10 backdrop-blur-md shadow-2xl rounded-lg max-w-5xl p-6 sm:p-10 text-gray-100">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in">
                     <div className="flex items-center justify-center">
                         <img
                             src={foodImage}
                             alt={foodName}
-                            className="rounded-lg shadow-lg max-w-full h-auto transform hover:scale-105 transition-transform duration-300"
+                            className="rounded-lg shadow-lg max-w-full h-auto transform hover:scale-110 transition-transform duration-500 ease-in-out"
                         />
                     </div>
                     <div className="flex flex-col justify-between">
@@ -92,7 +90,6 @@ const FoodDetails = () => {
                                 </div>
                                 <p class="translate-x-4">Go Back</p>
                             </button>
-
                         </div>
                     </div>
                 </div>
