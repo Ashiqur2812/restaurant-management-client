@@ -1,13 +1,14 @@
 import React from "react";
 import about from '../assets/about.png';
 import bgPic from '../assets/background.svg';
+import './About.css'
 
 const About = () => {
     return (
         <>
-            <div>
-                <img className="ml-[79px] w-full md:w-fit mb-[40rem] md:mb-0  object-cover" src={bgPic} alt="" />
-                <div className="flex flex-col md:flex-row md:pt-24 pl-4 md:pl-24 my-10 md:my-20 gap-x-6 md:gap-x-20 items-center justify-center absolute top-[45rem] md:top-[40rem]">
+            <div className="overflow-hidden">
+                <img className="ml-[79px] w-full md:w-fit mb-[40rem] md:mb-0 object-cover hover:scale-105 transition-transform duration-500" src={bgPic} alt="Background" />
+                <div className="flex flex-col md:flex-row pt-16 md:pt-24 pl-4 md:pl-24 my-10 md:my-20 gap-x-6 md:gap-x-20 items-center justify-center absolute top-[45rem] md:top-[40rem]">
                     <div className="text-center md:text-left">
                         <div className="top">
                             <h1 className="text-2xl md:text-4xl font-semibold">ABOUT US</h1>
@@ -18,7 +19,7 @@ const About = () => {
                         </p>
                     </div>
                     <div className="mt-6 md:mt-0">
-                        <img className="w-full max-w-[25rem] md:max-w-[35rem]" src={about} alt="about" />
+                        <img className="w-full max-w-[25rem] md:max-w-[35rem] flex justify-center items-center" src={about} alt="about" />
                     </div>
                 </div>
             </div>

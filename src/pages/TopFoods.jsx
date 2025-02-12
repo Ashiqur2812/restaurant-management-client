@@ -23,7 +23,7 @@ const TopFoods = () => {
     };
 
     return (
-        <div className="px-4 md:px-40 py-12">
+        <div className="md:ml-12 lg:ml-0 lg:px-40 py-12">
             <h2 className="text-3xl md:text-5xl font-semibold text-center mb-8 md:mb-16">Top Foods</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                 {
