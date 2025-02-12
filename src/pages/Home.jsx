@@ -4,6 +4,7 @@ import About from '../components/About';
 import TopFoods from '../pages/TopFoods';
 import UpcomingEvents from './UpcomingEvents';
 import CustomerReviews from './CustomerReviews';
+import CountdownTimer from './CountdownTimer';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <TopFoods />
             <CustomerReviews />
             <UpcomingEvents />
+            <CountdownTimer />
         </div>
     );
 };

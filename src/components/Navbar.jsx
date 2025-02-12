@@ -2,7 +2,8 @@ import { Link, NavLink } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import logo from '../../public/logo (3).jpg';
-import './Navbar.css'; // Import custom CSS for animations
+import './Navbar.css'; 
+import ThemeToggle from '../pages/ThemeToggle';
 
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext);
@@ -57,10 +58,11 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end flex items-center gap-4">
+                    <ThemeToggle/>
                     {
                         user && user?.email ? <>
                             <img referrerPolicy='no-referrer' className="h-8 md:h-10 w-8 md:w-10 rounded-full object-cover" src={user?.photoURL} alt="User" />
-                            <div className="text-[#313131] text-sm text-center hidden md:block">
+                            <div className="text-sm text-center hidden md:block">
                                 <p>{user?.displayName}</p>
                                 <p>{user?.email}</p>
                             </div>
@@ -111,7 +113,7 @@ const Navbar = () => {
                                 ></span>
 
                                 {/* Button Text */}
-                                <span className="relative text-xs sm:text-base font-semibold">Log Out</span>
+                                <span className="relative text-xs font-medium">Log Out</span>
                             </button>
                         </>
                             : <>

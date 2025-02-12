@@ -1,34 +1,40 @@
-import { motion } from "framer-motion";
+import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const CustomerReviews = () => {
     const reviews = [
-        { id: 1, name: "John Doe", rating: 5, comment: "Amazing food and great service!" },
-        { id: 2, name: "Jane Smith", rating: 4, comment: "Loved the ambiance and the dishes." },
-        { id: 3, name: "Alice Johnson", rating: 5, comment: "The best restaurant in town!" },
+        { id: 1, name: 'John Doe', comment: 'The best restaurant in town! The food is amazing and the service is top-notch.', image: 'https://randomuser.me/api/portraits/men/1.jpg' },
+        { id: 2, name: 'Jane Smith', comment: 'Absolutely loved the sushi platter. Highly recommended!', image: 'https://randomuser.me/api/portraits/women/2.jpg' },
+        { id: 3, name: 'Mike Johnson', comment: 'Great ambiance and delicious food. Will definitely come back!', image: 'https://randomuser.me/api/portraits/men/3.jpg' },
     ];
 
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        fade: true,
+    };
+
     return (
-        <div className="py-12 bg-white lg:mx-6">
-            <h2 className="text-3xl font-bold text-center mb-8">What Our Customers Say 🌟</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
-                {reviews.map((review) => (
-                    <motion.div
-                        key={review.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="bg-gray-200 p-6 rounded-lg shadow-md"
-                    >
-                        <div className="flex items-center mb-4">
-                            {[...Array(review.rating)].map((_, i) => (
-                                <span key={i} className="text-yellow-500">⭐</span>
-                            ))}
-                        </div>
-                        <p className="text-gray-700">{review.comment}</p>
-                        <p className="mt-4 text-gray-900 font-semibold">- {review.name}</p>
-                    </motion.div>
+        <div className="py-16 shadow-2xl">
+            <h2 className="text-2xl md:text-4xl font-bold text-center mb-8 animate__animated animate__fadeInDown">
+                What Our Customers Say
+            </h2>
+            <Slider {...settings} className="px-4 mx-6 md:mx-0">
+                {reviews.map(review => (
+                    <div key={review.id} className="text-center px-8">
+                        <img src={review.image} alt={review.name} className="w-20 h-20 rounded-full object-cover mx-auto mb-4" />
+                        <h3 className="text-xl md:text-2xl font-bold">{review.name}</h3>
+                        <p className="text-lg">{review.comment}</p>
+                    </div>
                 ))}
-            </div>
+            </Slider>
         </div>
     );
 };

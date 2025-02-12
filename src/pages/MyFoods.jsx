@@ -21,10 +21,10 @@ const MyFoods = () => {
     };
 
     return (
-        <div className='bg-white min-h-[calc(100vh-306px)]'>
+        <div className='min-h-[calc(100vh-306px)] lg:mx-6'>
             <div className="container mx-auto p-4">
                 <div className='flex items-center gap-x-3 mb-6 animate__animated animate__fadeIn'>
-                    <h1 className="text-3xl font-bold text-center text-gray-800 hover:text-rose-500 transition-colors duration-300">
+                    <h1 className="text-3xl font-bold text-center hover:text-rose-500 transition-colors duration-300">
                         My Foods
                     </h1>
                     <span className='px-3 py-1 text-xs text-pink-600 bg-pink-100 rounded-xl text-center animate__animated animate__bounceIn'>
@@ -32,9 +32,9 @@ const MyFoods = () => {
                     </span>
                 </div>
                 <div className="overflow-x-auto animate__animated animate__fadeIn">
-                    <table className="table-auto w-full border-collapse border border-gray-200">
+                    <table className="table-auto w-full border-collapse border ">
                         <thead>
-                            <tr className="bg-gray-100">
+                            <tr className="">
                                 <th className="border border-gray-300 px-4 py-2">Food Image</th>
                                 <th className="border border-gray-300 px-4 py-2">Food Name</th>
                                 <th className="border border-gray-300 px-4 py-2">Price</th>
@@ -44,7 +44,7 @@ const MyFoods = () => {
                         </thead>
                         <tbody>
                             {foods.map(food => (
-                                <tr key={food._id} className='text-center hover:bg-gray-100 transition-all animate__animated animate__fadeInUp'>
+                                <tr key={food._id} className='text-center hover:bg-gray-100 hover:text-black transition-all animate__animated animate__fadeInUp'>
                                     <td className='border py-3'>
                                         <img src={food.foodImage} alt={food.foodName} className="w-20 h-20 object-cover rounded-full mx-auto hover:scale-110 transition-transform duration-300" />
                                     </td>

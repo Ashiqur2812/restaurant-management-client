@@ -63,7 +63,7 @@ const AddFood = () => {
     return (
         <div className="min-h-screen flex items-center justify-center bg-cover bg-center my-24">
             <div
-                className="relative bg-white bg-opacity-90 backdrop-blur-md shadow-2xl rounded-lg p-8 md:p-12 w-full max-w-4xl"
+                className="relative bg-opacity-90 backdrop-blur-md shadow-2xl rounded-lg p-8 md:p-12 w-full max-w-4xl"
                 style={{
                     backgroundImage: `url(${foodBackground})`,
                     backgroundSize: "cover",
@@ -71,7 +71,7 @@ const AddFood = () => {
                     border: "2px solid #ccc",
                 }}
             >
-                <h2 className="text-2xl md:text-5xl text-black font-bold text-center  mb-6">
+                <h2 className="text-2xl md:text-5xl  font-bold text-center  mb-6">
                     Add a New Food Item
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -188,7 +188,7 @@ const AddFood = () => {
                                 name="name"
                                 defaultValue={user?.displayName}
                                 disabled
-                                className="w-full p-3 border rounded-lg bg-gray-100"
+                                className="w-full p-3 border rounded-lg"
                                 readOnly
                             />
                         </div>
@@ -200,7 +200,7 @@ const AddFood = () => {
                                 type="email"
                                 defaultValue={user?.email}
                                 disabled
-                                className="w-full p-3 border rounded-lg bg-gray-100"
+                                className="w-full p-3 border rounded-lg"
                                 readOnly
                             />
                         </div>

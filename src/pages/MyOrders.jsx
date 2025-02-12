@@ -81,10 +81,10 @@ const MyOrders = () => {
     };
 
     return (
-        <div className='bg-white min-h-[calc(100vh-306px)]'>
+        <div className='min-h-[calc(100vh-306px)]'>
             <div className="container mx-auto p-8">
                 <div className='flex items-center gap-x-3 mb-6 animate__animated animate__fadeIn'>
-                    <h1 className="text-3xl font-bold text-center text-gray-800 hover:text-rose-500 transition-colors duration-300">
+                    <h1 className="text-3xl font-bold text-center hover:text-rose-500 transition-colors duration-300">
                         My Orders
                     </h1>
                     <span className='px-3 py-1 text-xs text-pink-600 bg-pink-100 rounded-xl text-center animate__animated animate__bounceIn'>
@@ -94,7 +94,7 @@ const MyOrders = () => {
                 <div className="overflow-x-auto animate__animated animate__fadeIn">
                     <table className="table-auto w-full border-collapse border border-gray-200 shadow-lg">
                         <thead>
-                            <tr className="bg-gray-100">
+                            <tr>
                                 <th className="border border-gray-300 px-4 py-2">Food Info</th>
                                 <th className="border border-gray-300 px-4 py-2">Buying Date</th>
                                 <th className="border border-gray-300 px-4 py-2">Actions</th>

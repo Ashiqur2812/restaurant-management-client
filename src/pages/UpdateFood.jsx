@@ -73,7 +73,7 @@ const UpdateFood = () => {
     return (
         <div className="min-h-screen flex items-center justify-center bg-cover bg-center my-24">
             <div
-                className="relative bg-white bg-opacity-90 backdrop-blur-md shadow-2xl rounded-lg p-8 md:p-12 w-full max-w-4xl"
+                className="relative bg-opacity-90 backdrop-blur-md shadow-2xl rounded-lg p-8 md:p-12 w-full max-w-4xl"
                 style={{
                     backgroundImage: `url(${foodBackground})`,
                     backgroundSize: "cover",
@@ -81,7 +81,7 @@ const UpdateFood = () => {
                     border: "2px solid #ccc",
                 }}
             >
-                <h2 className="text-2xl md:text-5xl text-black font-bold text-center  mb-6">
+                <h2 className="text-2xl md:text-5xl font-bold text-center  mb-6">
                     Update a New Food Item
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -197,7 +197,7 @@ const UpdateFood = () => {
                     {/* Add By (Read-Only Fields) */}
                     <div className="flex gap-4">
                         <div className="w-1/2">
-                            <label className="block text-lg font-medium text-gray-700">
+                            <label className="block text-lg font-medium ">
                                 Added By (Name)
                             </label>
                             <input
@@ -205,19 +205,19 @@ const UpdateFood = () => {
                                 name="name"
                                 defaultValue={user?.displayName}
                                 disabled
-                                className="w-full p-3 border rounded-lg bg-gray-100"
+                                className="w-full p-3 border rounded-lg"
                                 readOnly
                             />
                         </div>
                         <div className="w-1/2">
-                            <label className="block text-lg font-medium text-gray-700">
+                            <label className="block text-lg font-medium">
                                 Added By (Email)
                             </label>
                             <input
                                 type="email"
                                 defaultValue={user?.email}
                                 disabled
-                                className="w-full p-3 border rounded-lg bg-gray-100"
+                                className="w-full p-3 border rounded-lg"
                                 readOnly
                             />
                         </div>

@@ -30,10 +30,10 @@ const AllFoods = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="mt-40"
+                className="pt-16"
             >
                 <h1 className="text-4xl text-center font-bold mb-4">All Foods 🍔🍕🍰</h1>
-                <p className="text-lg text-center text-gray-600">Explore our delicious menu and find your favorite dishes! 🍴</p>
+                <p className="text-lg text-center">Explore our delicious menu and find your favorite dishes! 🍴</p>
             </motion.div>
 
             {/* Filter, Search, and Sort Section */}
@@ -48,7 +48,7 @@ const AllFoods = () => {
                     <select
                         name="category"
                         id="category"
-                        className="border p-4 rounded-lg bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        className="border p-4 rounded-lg  shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                         onChange={(e) => setFilter(e.target.value)}
                         value={filter}
                     >
@@ -63,7 +63,7 @@ const AllFoods = () => {
                 {/* Search Bar */}
                 <motion.div
                     whileHover={{ scale: 1.02 }}
-                    className="flex p-1 overflow-hidden border rounded-lg bg-white shadow-md focus-within:ring-2 focus-within:ring-blue-400"
+                    className="flex p-1 overflow-hidden border rounded-lg  shadow-md focus-within:ring-2 focus-within:ring-blue-400"
                 >
                     <input
                         className="px-6 py-2 text-gray-700 placeholder-gray-500 outline-none flex-1"
@@ -88,7 +88,7 @@ const AllFoods = () => {
                     <select
                         name="sort"
                         id="sort"
-                        className="border p-4 rounded-lg bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        className="border p-4 rounded-lg  shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                         onChange={(e) => setSort(e.target.value)}
                         value={sort}
                     >

@@ -5,7 +5,7 @@ const OrderTable = ({ order, handleDelete }) => {
     const { foodName, buyingDate } = order || {};
 
     return (
-        <tr key={order._id} className='text-center hover:bg-gray-100 transition-all animate__animated animate__fadeInUp'>
+        <tr key={order._id} className='text-center hover:bg-gray-100 hover:text-black transition-all animate__animated animate__fadeInUp'>
             <td className='border py-3'>
                 <div className="flex items-center justify-center gap-4">
                     {/* <img src={foodImage} alt={foodName} className="w-16 h-16 object-cover rounded-full hover:scale-110 transition-transform duration-300" /> */}
