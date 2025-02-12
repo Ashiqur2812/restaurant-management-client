@@ -13,7 +13,7 @@ import FoodDetails from "../pages/FoodDetails";
 import Gallery from "../pages/Gallery";
 import FoodPurchase from "../pages/FoodPurchase";
 import MyOrders from "../pages/MyOrders";
-import Loader from "../shared/Loader";
+// import Loader from "../shared/Loader";
 
 const router = createBrowserRouter([
     {
@@ -74,10 +74,10 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register />
     },
-    {
-        path: '*',
-        element: <Loader />
-    },
+    // {
+    //     path: '*',
+    //     element: <Loader />
+    // },
     {
         path: '*',
         element: <NotFound />
