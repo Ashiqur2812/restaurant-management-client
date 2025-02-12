@@ -161,13 +161,6 @@ Yet-Another-React-Lightbox for gallery.
 
 Tanstack Query for API data fetching and mutations.
 
-📂 Project Structure
-
-Client Repository: https://github.com/programming-hero-web-course2/b10a11-client-side-Ashiqur2812
-
-Server Repository: https://github.com/programming-hero-web-course2/b10a11-server-side-Ashiqur2812
-
-
 ✨ Additional Features
 
 Spinner for loading states.
