@@ -4,7 +4,7 @@ Welcome to Food Kingdom, a comprehensive Restaurant Management website designed 
 
 🚀 Live Site
 
-##Client side link : https://auth-moha-milon-76938.web.app
+##Client side link : https://restaurant-project-virid.vercel.app
 
 Server side link : https://restaurant-management-server-rouge.vercel.app
 
