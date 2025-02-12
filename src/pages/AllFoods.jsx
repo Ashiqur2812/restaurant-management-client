@@ -7,18 +7,20 @@ const AllFoods = () => {
     const [foods, setFoods] = useState([]);
     const [filter, setFilter] = useState('');
     const [search, setSearch] = useState('');
+    const [sort, setSort] = useState(''); // New: Sort state
 
     useEffect(() => {
         const fetchAllFoods = async () => {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/foods?filter=${filter}&search=${search}`);
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/foods?filter=${filter}&search=${search}&sort=${sort}`);
             setFoods(data);
         };
         fetchAllFoods();
-    }, [filter, search]);
+    }, [filter, search, sort]); // Add sort to the dependency array
 
     const handleReset = () => {
         setFilter('');
         setSearch('');
+        setSort(''); // Reset sort on reset
     };
 
     return (
@@ -34,7 +36,7 @@ const AllFoods = () => {
                 <p className="text-lg text-center text-gray-600">Explore our delicious menu and find your favorite dishes! 🍴</p>
             </motion.div>
 
-            {/* Filter and Search Section */}
+            {/* Filter, Search, and Sort Section */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -47,7 +49,7 @@ const AllFoods = () => {
                         name="category"
                         id="category"
                         className="border p-4 rounded-lg bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        onChange={e => setFilter(e.target.value)}
+                        onChange={(e) => setFilter(e.target.value)}
                         value={filter}
                     >
                         <option>Filter By Category</option>
@@ -67,7 +69,7 @@ const AllFoods = () => {
                         className="px-6 py-2 text-gray-700 placeholder-gray-500 outline-none flex-1"
                         type="text"
                         name="search"
-                        onChange={e => setSearch(e.target.value)}
+                        onChange={(e) => setSearch(e.target.value)}
                         value={search}
                         placeholder="Enter Food Name"
                         aria-label="Enter Food Name"
@@ -79,6 +81,21 @@ const AllFoods = () => {
                     >
                         Search 🔍
                     </motion.button>
+                </motion.div>
+
+                {/* Sort Dropdown */}
+                <motion.div whileHover={{ scale: 1.05 }}>
+                    <select
+                        name="sort"
+                        id="sort"
+                        className="border p-4 rounded-lg bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        onChange={(e) => setSort(e.target.value)}
+                        value={sort}
+                    >
+                        <option>Sort By Price</option>
+                        <option value="asc">Low to High</option>
+                        <option value="desc">High to Low</option>
+                    </select>
                 </motion.div>
 
                 {/* Reset Button */}

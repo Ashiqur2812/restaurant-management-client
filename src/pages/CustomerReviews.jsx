@@ -8,7 +8,7 @@ const CustomerReviews = () => {
     ];
 
     return (
-        <div className="py-12 bg-white">
+        <div className="py-12 bg-white lg:mx-6">
             <h2 className="text-3xl font-bold text-center mb-8">What Our Customers Say 🌟</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
                 {reviews.map((review) => (
@@ -17,7 +17,7 @@ const CustomerReviews = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="bg-gray-50 p-6 rounded-lg shadow-md"
+                        className="bg-gray-200 p-6 rounded-lg shadow-md"
                     >
                         <div className="flex items-center mb-4">
                             {[...Array(review.rating)].map((_, i) => (

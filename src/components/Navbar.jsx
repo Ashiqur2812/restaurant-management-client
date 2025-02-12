@@ -59,7 +59,7 @@ const Navbar = () => {
                 <div className="navbar-end flex items-center gap-4">
                     {
                         user && user?.email ? <>
-                            <img referrerPolicy='no-referrer' className="h-8 md:h-10 w-8 md:w-10 rounded-full" src={user?.photoURL} alt="User" />
+                            <img referrerPolicy='no-referrer' className="h-8 md:h-10 w-8 md:w-10 rounded-full object-cover" src={user?.photoURL} alt="User" />
                             <div className="text-[#313131] text-sm text-center hidden md:block">
                                 <p>{user?.displayName}</p>
                                 <p>{user?.email}</p>
